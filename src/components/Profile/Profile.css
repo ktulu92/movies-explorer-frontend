@@ -1,0 +1,80 @@
+.profile {
+
+}
+
+.profile__form {
+    margin-top:74px;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile__title {
+
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  /* identical to box height */
+
+  text-align: center;
+
+  color: #000000;
+  margin-left: auto;
+  margin-right: auto;
+}
+.profile__input-name {
+  margin-left: auto;
+  margin-right: auto;
+
+  width: 410px;
+  margin-top: 120px;
+  border: none;
+  border-bottom: solid 1px grey;
+}
+.profile__input-e-mail {
+
+    margin-top: 34px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 410px;
+  border-bottom: solid 1px grey;
+  border: none;
+}
+
+.profile__button-change {
+  margin-top: 220px;
+  text-decoration: none;
+
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 16px;
+  /* identical to box height */
+  margin-left: auto;
+  margin-right: auto;
+
+  align-items: center;
+  text-align: center;
+  border: none;
+  color: black;
+}
+.profile__button-out {
+  margin-top: 16px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 70px;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+  /* identical to box height */
+
+  text-align: center;
+  text-decoration: none;
+
+  color: #ff4062;
+  border: none;
+}

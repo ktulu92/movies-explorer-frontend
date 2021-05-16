@@ -1,0 +1,95 @@
+.login {
+    margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .login__form {
+    width: 396px;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .login__logo {
+    height: 38px;
+    width: 38px;
+    background-image: url(../../images/logo.png);
+    background-repeat: no-repeat;
+  }
+  .login__title {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    /* identical to box height */
+  
+    color: #000000;
+    margin: 40px auto 40px 0;
+  }
+  .login__input-name {
+  }
+  
+  .login__input-e-mail {
+  }
+  
+  .login__input-password {
+  }
+  
+  .login__input {
+    background: #f9f9f9;
+    border-radius: 8px;
+    width: 396px;
+    height: 46px;
+    border: none;
+   
+    margin-top: 10px;
+  }
+  
+  .login__submit-button {
+    margin-top: 180px;
+    width: 396px;
+    height: 46px;
+    background: #000000;
+    border-radius: 3px;
+    color: white;
+  }
+  
+  .login__input-label {
+    margin-bottom: 10px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 12px;
+  
+    color: #a0a0a0;
+  }
+  
+  .login__button-up {
+      text-decoration: none;
+    text-decoration: none;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+  
+    text-align: center;
+  
+    color: #000000;
+  }
+  .login__subtitle {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    margin-bottom: 70px;
+  
+    text-align: center;
+  
+    color: #a0a0a0;
+  }
+  
