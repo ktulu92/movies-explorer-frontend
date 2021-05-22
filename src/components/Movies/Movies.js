@@ -1,9 +1,9 @@
 import React from "react";
 // import { CurrentUserContext } from "../contexts/CurrentUserContext";
-import MovieCard from "../MovieCard/MovieCard";
+import MovieCardList from "../MovieCardList/MovieCardList";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
-import SearchForm from "../SearchForm/SearchForm";
+
 import MoviesCardList from "../MovieCardList/MovieCardList";
 
 function Movies(props) {
@@ -11,8 +11,8 @@ function Movies(props) {
   return (
     <section className="movies">
       <Header isLogin={isLogin} onClick={onClick} />
-      <SearchForm />
-      <MoviesCardList />
+   
+      <MoviesCardList isSavedMovies={props.isSavedMovies}/>
 
       <Footer />
     </section>

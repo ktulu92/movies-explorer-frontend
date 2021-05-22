@@ -44,7 +44,7 @@ function App() {
 
   return (
     <div className="page__container">
-      {/* <SearchForm/> */}
+     
       <Switch>
         <Route exact path="/">
           <Main isLogin={isLogin} onClick={handleOpenBurgerMenuClick} />
@@ -60,12 +60,12 @@ function App() {
         </Route>
 
         <Route path="/movies">
-          <Movies isLogin={isLogin} onClick={handleOpenBurgerMenuClick} />
+          <Movies isLogin={isLogin} onClick={handleOpenBurgerMenuClick} isSavedMovies={false} />
         </Route>
         <Route path="/saved-movies">
           <SavedMovieCardList
             isLogin={isLogin}
-            onClick={handleOpenBurgerMenuClick}
+            onClick={handleOpenBurgerMenuClick} isSavedMovies={true}
           />
         </Route>
       </Switch>

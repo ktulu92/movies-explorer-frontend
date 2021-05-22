@@ -4,9 +4,8 @@
   background-color: #2be080;
   position: relative;
   border-radius: 20px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 50px;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .toggle-button__label {
@@ -26,6 +25,6 @@
 }
 
 .toggle-button__input:checked + .toggle-button__label {
-  left: 25px;
+  left: 22px;
   background-color: #ffffff;
 }

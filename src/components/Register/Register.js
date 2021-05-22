@@ -14,6 +14,12 @@ function Register(props) {
           <img className=""></img>
          
         </a>
+
+
+
+        <Link to="/" className="header__logo-link">
+        <div className="header__logo"></div>
+      </Link>
        
 
         <h3 className="register__title">Добро пожаловать!</h3>

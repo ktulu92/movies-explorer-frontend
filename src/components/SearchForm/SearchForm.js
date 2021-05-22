@@ -14,8 +14,10 @@ function SearchForm(props) {
         <input className="search__input"type="search" placeholder="Фильм" required></input>
         <button className="search__button" type="submit">Найти</button>
       </form>
-
+<div className="search__toggle-container">
     <ToggleButton/>
+    <p className ="search__toggle-label">Короткометражки</p>
+    </div>
 
 
     </section>

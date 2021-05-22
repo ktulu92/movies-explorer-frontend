@@ -19,7 +19,8 @@
 @media (min-width: 320px) and (max-width: 600px) {
   .promo {
     min-width: 292px;
-    
+    border-radius: 10px;
+
     margin-left: 14px;
     margin-right: 14px;
   }
@@ -43,16 +44,18 @@
   font-family: "Inter", "Arial", sans-serif;
   font-style: normal;
   text-align: center;
-
   max-width: 720px;
 }
 
-
-@media (min-width: 601px) and (max-width: 1024px) {
+@media (min-width: 601px) and (max-width: 1023px) {
   .promo__title {
-margin-top: 350px;
+    margin-top: 350px;
   }
-  
+  .promo {
+    margin-left: 20px;
+    margin-right: 20px;
+
+  }
 }
 
 @media (min-width: 320px) and (max-width: 600px) {
@@ -60,7 +63,7 @@ margin-top: 350px;
     min-width: 292px;
     height: 111px;
     margin-top: 220px;
-    
+
     font-family: Inter;
     font-style: normal;
     font-weight: normal;
@@ -70,15 +73,12 @@ margin-top: 350px;
 
     text-align: center;
     letter-spacing: -0.04em;
-
     color: #000000;
   }
 }
 
-/* @media (min-width: 600px) and (max-width: 991px){
-    .promo__title{
-        max-width: 680px;
-      
-    }
-    } */
-
+@media (min-width: 320px) and (max-width: 768px) {
+  .promo {
+    border-radius: 10px;
+  }
+}

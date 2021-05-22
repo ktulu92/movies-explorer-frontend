@@ -5,19 +5,23 @@
   display: flex;
   width: 100%;
   height: 134px;
-
+  list-style: none;
   background-color: #f9f9f9;
+  justify-content: space-between;
 }
 
 .element__info {
   display: flex;
   flex-direction: column;
-  width: 400px;
+
   height: 90px;
   margin-top: 22px;
   margin-bottom: 22px;
   margin-left: 22px;
   justify-content: space-between;
+}
+
+.element__text-info {
 }
 .element__title {
   font-family: Inter;
@@ -38,7 +42,7 @@
   align-items: center;
   color: #a0a0a0;
 }
-.element__like {
+.element__like_clicked {
   border: none;
   background-repeat: no-repeat;
   box-sizing: border-box;
@@ -48,19 +52,45 @@
   min-height: 12px;
   background-image: url("../../images/like.png");
 }
+
+.element__like_not-clicked {
+  background-color: inherit;
+  border: none;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+  background-position: 50%;
+  object-fit: none;
+  width: 14px;
+  min-height: 12px;
+  background-image: url("../../images/empty-like.png");
+}
+.element__delete {
+  background-color: inherit;
+  border: none;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+  background-position: 50%;
+  object-fit: none;
+  width: 14px;
+  min-height: 12px;
+  background-image: url("../../images/delete.png");
+}
+
 .element__image {
   width: 220px;
   height: 122px;
   margin: 6px 6px 6px auto;
 }
 
-@media (min-width: 320px) and (max-width: 425px) {
+@media (min-width: 320px) and (max-width: 600px) {
   .element {
-    width: 100%;
+    width: 300px;
     height: 232px;
     flex-direction: column-reverse;
     background-color: #f9f9f9;
     margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .element__title {
@@ -78,18 +108,18 @@
 
   .element__info {
     flex-wrap: wrap;
-    width: 100%;
+
     margin-bottom: 0px;
     margin-top: 14px;
     margin-left: 12px;
     margin-right: 12px;
     height: 60px;
+    align-content: space-between;
   }
 
   .element__image {
-    width: 100%;
+    width: 300px;
     height: 168px;
-    margin: 6px 6px 6px auto;
   }
 
   .element__duration {
