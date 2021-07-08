@@ -314,7 +314,7 @@ function App() {
       })
       .catch((error) => {
         setIsLoading(false);
-        // setMoviesSearchResponse(MOVIES_SERVER_ERROR_MESSAGE);
+        setsavedMoviesErrorMessage("Что то пошло не так");
         console.log(error);
       });
   }
