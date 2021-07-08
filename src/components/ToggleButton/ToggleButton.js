@@ -2,20 +2,37 @@ import React from "react";
 
 
 
-class ToggleButton extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { value: 0 };
-  }
+function ToggleButton (props)  
 
-  render() {
+   {
     return (
       <div className="toggle-button">
-        <input type="checkbox" id="toggle" className="toggle-button__input"/>
-        <label htmlFor="toggle" className="toggle-button__label"></label>
+        <input type="checkbox" id="toggle"
+         className={props.checkboxChecked? "toggle-button__input":"toggle-button__input toggle-button__input-active"}
+        onClick={props.onClick}
+   
+        />
+        <label htmlFor="toggle" 
+        className={props.checkboxChecked?"toggle-button__label":"toggle-button__label toggle-button__label-active"}
+  
+        ></label>
       </div>
     );
   }
-}
 
 export default ToggleButton;
+
+// return (
+//   <div className="toggle-button">
+//     <input type="checkbox" id="toggle"
+//      className={props.checkboxChecked? "toggle-button__input toggle-button__input-active":"toggle-button__input"}
+//     onClick={props.onClick}
+
+//     />
+//     <label htmlFor="toggle" 
+//     className={props.checkboxChecked?"toggle-button__label toggle-button__label-active":"toggle-button__label"}
+
+//     ></label>
+//   </div>
+// );
+

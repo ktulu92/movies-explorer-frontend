@@ -3,6 +3,21 @@
   display: flex;
   flex-direction: column;
 }
+.register__input-error{
+  color:red;
+  margin-top: 10px;
+}
+
+.register__sumbit-error{
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 10px;
+  color:red;
+  margin-top: 150px;
+
+
+}
+
 
 .register__form {
   width: 396px;
@@ -61,7 +76,13 @@
   color: white;
 }
 
+.register__submit-button_inactive{
+  background: grey;
+
+}
+
 .register__input-label {
+ 
   margin-bottom: 10px;
   font-family: Inter;
   font-style: normal;
@@ -95,4 +116,37 @@
   text-align: center;
 
   color: #a0a0a0;
+}
+
+@media (min-width: 320px) and (max-width: 425px) {
+
+  .register__input-label {
+    width: 264px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+
+  .register__input {
+    width: 260px;
+    height: 46px;
+  }
+
+  .register__title {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .register__form {
+    flex-direction: column;
+    width: 320px;
+  }
+
+  .register__submit-button {
+    width: 260px;
+    height: 45px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }

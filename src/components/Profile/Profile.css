@@ -1,15 +1,26 @@
 .profile {
+}
+.profile__input-label{
+  margin-left: auto;
+  margin-right: auto;
+
+  width: 410px;
 
 }
 
+
+.profile__input-error{
+  color:red;
+  margin-top: 10px;
+}
+
 .profile__form {
-    margin-top:74px;
+  margin-top: 74px;
   display: flex;
   flex-direction: column;
 }
 
 .profile__title {
-
   font-family: Inter;
   font-style: normal;
   font-weight: 500;
@@ -32,14 +43,14 @@
   border: none;
   border-bottom: solid 1px grey;
 }
-.profile__input-e-mail {
-
-    margin-top: 34px;
+.profile__input-email {
+  margin-top: 34px;
   margin-left: auto;
   margin-right: auto;
   width: 410px;
-  border-bottom: solid 1px grey;
   border: none;
+  border-bottom: solid 1px grey;
+  
 }
 
 .profile__button-change {
@@ -78,3 +89,64 @@
   color: #ff4062;
   border: none;
 }
+
+@media (min-width: 320px) and (max-width: 425px) {
+  .profile__input-label {
+    width: 264px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .profile__input-name {
+    width: 260px;
+    height: 46px;
+  }
+
+  .profile__input-email {
+    width: 260px;
+    height: 46px;
+  }
+  .profile__title {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .profile__form {
+    flex-direction: column;
+    /* width: 320px; */
+  }
+
+  .profile__submit-button {
+    width: 260px;
+    height: 45px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* @media (min-width: 426px) and (max-width: 768px) {
+  
+
+}
+
+.profile__title{
+  
+} 
+.profile__input-name{
+  
+} 
+.profile__input-e-mail{
+  
+} 
+.profile__button-change{
+  
+} 
+
+.profile__button-out{
+  
+}  */

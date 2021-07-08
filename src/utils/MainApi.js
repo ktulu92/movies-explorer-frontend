@@ -1,72 +1,74 @@
-//mainAPI
-//url
+const urlData = "https://api.explorer-movies.nomoredomains.icu"; //До деплоя будет локал хост
 
-//Логирование
-//Регистрация
-//Выход из аккаунта
-//Получение инофрмации о пользователе
-//Изменение информации о пользователе
-
-//Удаление фильма
-//Создание фильма
-
-
-class Api {
-  constructor(url, headers) {
-    this.url = url;
-    this.headers = headers;
-  }
-  
-//Получение фильмов
-  getInitialMovies() {
+//ok
+export function register(name, email, password) {
+  debugger
+  return fetch(`${urlData}/signup`, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    // credentials: "include",
     
-    return fetch(`${this.url}` + "movies", {
-      headers: this.headers,
+    body: JSON.stringify({ name, email, password }), //Может быть нужно "name":name
+  }).then((res) => handleResponse(res));
+}
+
+//Получение фильмов
+export function getMovies() {
+  const token = localStorage.getItem("jwt");
+  return fetch(`${urlData}` + "/movies", {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  })
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+
+      // если ошибка, отклоняем промис
+      return Promise.reject(`Ошибка: ${res.status}`);
     })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
+    .catch((err) => {
+      console.log("Запрос не выполнен", err);
+    });
+}
 
-        // если ошибка, отклоняем промис
-        return Promise.reject(`Ошибка: ${res.status}`);
-      })
-      .catch((err) => {
-        console.log("Запрос не выполнен", err);
-      });
-  }
+//Добавление фильма
+export function addNewMovie(data) {
+  const token = localStorage.getItem("jwt");
 
-
-  //Добавление фильма
-  addNewMovie({  country,
-    director,
-    duration,
-    year,
-    description,
-    image,
-    trailer,
-    thumbnail,
-    movieId,
-    nameRU,
-    nameEN }) {
-    return fetch(`${this.url}` + "movies", {
+  return (
+    fetch(`${urlData}/movies`, {
       method: "POST",
 
-      headers: this.headers,
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
       body: JSON.stringify({
-        country,
-        director,
-        duration,
-        year,
-        description,
-        image,
-        trailer,
-        thumbnail,
-        movieId,
-        nameRU,
-        nameEN,
+        country: data.country,
+        director: data.director,
+        duration: data.duration,
+        year: data.year,
+        description: data.description,
+        image: data.image,
+        trailer: data.trailer,
+        thumbnail: data.thumbnail,
+        movieId: data.movieId,
+        nameRU: data.nameRU,
+        nameEN: data.nameEN,
       }),
     })
+      // .then(res => res.json())
+      // .then(data => data)
+
       .then((res) => {
         if (res.ok) {
           return res.json();
@@ -77,176 +79,160 @@ class Api {
 
       .catch((err) => {
         console.log("Запрос не выполнен", err);
-      });
-  }
+      })
+  );
+}
 
-  deleteMovie(cardId) {
-    return fetch(`${this.url}` + "cards/" + `${cardId}`, {
-      method: "DELETE",
+export function deleteMovie(movieId) {
+  const token = localStorage.getItem("jwt");
+  return fetch(`${urlData}/movies/${movieId}`, {
+    method: "DELETE",
 
-      headers: this.headers,
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  })
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      // если ошибка, отклоняем промис
+      return Promise.reject(`Ошибка: ${res.status}`);
     })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        // если ошибка, отклоняем промис
-        return Promise.reject(`Ошибка: ${res.status}`);
-      })
 
-      .catch((err) => {
-        console.log("Запрос не выполнен", err);
-      });
-  }
+    .catch((err) => {
+      console.log("Запрос не выполнен", err);
+    });
+}
+//headers справить
+// export function changeLikeCardStatus(movieId, isLiked) {
+//   if (isLiked) {
+//     return fetch(`${urlData}` + "/cards/likes/" + `${movieId}`, {
+//       method: "PUT",
 
-  changeLikeCardStatus(cardId, isLiked) {
-    if (isLiked) {
-      return fetch(`${this.url}` + "cards/likes/" + `${cardId}`, {
-        method: "PUT",
-
-        headers: this.headers,
-      })
-        .then((res) => {
-          if (res.ok) {
-            return res.json();
-          }
-          // если ошибка, отклоняем промис
-          return Promise.reject(`Ошибка: ${res.status}`);
-        })
-
-        .catch((err) => {
-          console.log("Запрос не выполнен", err);
-        });
-    } else {
-      return fetch(`${this.url}` + "cards/likes/" + `${cardId}`, {
-        method: "DELETE",
-
-        headers: this.headers,
-      })
-        .then((res) => {
-          if (res.ok) {
-            return res.json();
-          }
-          // если ошибка, отклоняем промис
-          return Promise.reject(`Ошибка: ${res.status}`);
-        })
-
-        .catch((err) => {
-          console.log("Запрос не выполнен", err);
-        });
-    }
-  }
-
-//   updateUserAvatar(data) {
-//     return fetch(`${this.url}` + "users/me/avatar", {
-//       method: "PATCH",
 //       headers: this.headers,
-//       body: JSON.stringify({
-//         avatar: data.avatar,
-//       }),
 //     })
 //       .then((res) => {
 //         if (res.ok) {
 //           return res.json();
 //         }
-
+//         // если ошибка, отклоняем промис
 //         return Promise.reject(`Ошибка: ${res.status}`);
 //       })
+
+//       .catch((err) => {
+//         console.log("Запрос не выполнен", err);
+//       });
+//   } else {
+//     return fetch(`${urlData}` + "/cards/likes/" + `${movieId}`, {
+//       method: "DELETE",
+
+//       headers: this.headers,
+//     })
+//       .then((res) => {
+//         if (res.ok) {
+//           return res.json();
+//         }
+//         // если ошибка, отклоняем промис
+//         return Promise.reject(`Ошибка: ${res.status}`);
+//       })
+
 //       .catch((err) => {
 //         console.log("Запрос не выполнен", err);
 //       });
 //   }
+// }
 
-  getProfileInfo() {
-    return fetch(`${this.url}` + "users/me", {
-      method: "GET",
-      headers: this.headers,
+export function getProfileInfo(token) {
+  return fetch(`${urlData}` + "/users/me", {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  })
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+
+      // если ошибка, отклоняем промис
+      return Promise.reject(`Ошибка: ${res.status}`);
     })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-
-        // если ошибка, отклоняем промис
-        return Promise.reject(`Ошибка: ${res.status}`);
-      })
-      .catch((err) => {
-        console.log("Запрос не выполнен", err);
-      });
-  }
-//ok
-  editProfile(data) {
-    return fetch(`${this.url}` + "users/me", {
-      method: "PATCH",
-      headers: this.headers,
-      body: JSON.stringify({
-        name: data.name,
-        about: data.about,
-      }),
-    })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-
-        // если ошибка, отклоняем промис
-        return Promise.reject(`Ошибка: ${res.status}`);
-      })
-      .catch((err) => {
-        console.log("Запрос не выполнен", err);
-      });
-  }
+    .catch((err) => {
+      console.log("Запрос не выполнен", err);
+    });
 }
-const urlData = "https://mesto.nomoreparties.co/v1/cohort-17/";
-const headersData = {
-  authorization: "c9722db9-3ef8-471a-a8fd-61097de987b4",
-  "Content-Type": "application/json",
+
+//ok
+export function editProfile({ name, email }) {
+  const token = localStorage.getItem("jwt");
+  return fetch(`${urlData}` + "/users/me", {
+    method: "PATCH",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({ email: email, name: name }),
+  })
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+
+      // если ошибка, отклоняем промис
+      return Promise.reject(`Ошибка: ${res.status}`);
+    })
+    .catch((err) => {
+      console.log("Запрос не выполнен", err);
+    });
+}
+
+const handleResponse = (res) => {
+  if (res.ok) {
+    return res.json();
+  }
+  return Promise.reject(res.status);
 };
 
-const api = new Api(urlData, headersData);
-
-export default api;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//ok
+export function authorize(email, password) {
+  return fetch(`${urlData}/signin`, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    // credentials: "include",
+    body: JSON.stringify({ email, password }),
+  })
+    .then((res) => handleResponse(res))
+    .then((data) => {
+      if (data != null) {
+        localStorage.setItem("jwt", data.token);
+      }
+      return data;
+    });
+}
+//ok
+export function getToken(token) {
+  //
+  return fetch(`${urlData}/users/me`, {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    // credentials: "include",
+  }).then((res) => {
+    if (res.ok) {
+      return res.json();
+    }
+    return Promise.reject(`Ошибка: ${res.status}`);
+  });
+}

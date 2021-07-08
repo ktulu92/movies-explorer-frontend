@@ -64,11 +64,11 @@
   color: black;
   width: 54px;
   font-size: 13px;
-line-height: 18px;
+  line-height: 18px;
 }
 
 .header__link:nth-child(2) {
- width: 142px;
+  width: 142px;
 }
 
 .header__menu-films {
@@ -123,9 +123,8 @@ line-height: 18px;
 }
 
 @media (min-width: 320px) and (max-width: 600px) {
-  .header__menu-auth{
+  .header__menu-auth {
     width: 132px;
-
   }
   .header__in {
     height: 26px;
@@ -137,7 +136,7 @@ line-height: 18px;
     line-height: 16px;
     /* display: flex; */
     align-items: center;
-   
+
     color: #ffffff;
   }
   .header__up {
@@ -146,11 +145,12 @@ line-height: 18px;
     font-weight: 500;
     font-size: 10px;
     font-size: 10px;
-line-height: 16px;
+    line-height: 16px;
     width: 64px;
   }
   .header__logo {
-   
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 

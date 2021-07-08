@@ -1,25 +1,69 @@
 import React from "react";
-// import { CurrentUserContext } from "../contexts/CurrentUserContext";
 import MovieCard from "../MovieCard/MovieCard";
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
 import SearchForm from "../SearchForm/SearchForm";
+import Preloader from "../Preloader/Preloader";
 
+function MovieCardList({
+  handleAddMovies,
 
-function MovieCardList(props) {
+  likeMovie,
+  deleteMovie,
+  savedMovies,
+
+  numberOfAddedMovies,
+  numberOfMovies,
+
+  isLoading,
+  searchFilm,
+  onCheckbox,
+
+  checkboxChecked,
+  isSavedMovies,
+}) {
+  //
+
   return (
     <section className="movie-card-list">
-       <SearchForm />
+      <Preloader isLoading={isLoading} />
+      
+      <SearchForm
+        searchFilm={searchFilm}
+        onCheckbox={onCheckbox}
+        checkboxChecked={checkboxChecked}
+      />
+
       <div className="movie-card-list-container">
-        {/* Здесь будет добавление карточек из JSON  */}
-     
-        <MovieCard  isSavedMovies={props.isSavedMovies} title="33 слова о дизайне" duration="1ч" />
-
-        <MovieCard  isSavedMovies={props.isSavedMovies} title="33 слова о дизайне" duration="1ч" />
-
-        <MovieCard  isSavedMovies={props.isSavedMovies} title="33 слова о дизайне" duration="1ч" />
+        {savedMovies.slice(numberOfAddedMovies, numberOfMovies).map((card) => (
+          <MovieCard
+            key={card.movieId}
+            savedMovies={savedMovies}
+            isSavedMovies={isSavedMovies} //saved
+            movie={card}
+            likeMovie={likeMovie} //функция лайка(сохранения)
+            deleteMovie={deleteMovie} //функция удаления
+          />
+        ))}
       </div>
-      <button className="movie-card-list__more-button">Еще</button>
+
+      {savedMovies.length === 0 ? (
+        <p className="movie-card-list__empty-list">
+          Воспользуйтесь поиском, чтобы найти фильмы!
+        </p>
+      ) : (
+        <button
+          className={
+            isSavedMovies
+              ? "movie-card-list__more-button movie-card-list__more-button-inactive"
+              : "movie-card-list__more-button" &&
+                numberOfMovies > savedMovies.length
+              ? "movie-card-list__more-button movie-card-list__more-button-inactive"
+              : "movie-card-list__more-button"
+          }
+          onClick={handleAddMovies}
+        >
+          Еще
+        </button>
+      )}
     </section>
   );
 }

@@ -24,7 +24,16 @@
   visibility: hidden;
 }
 
-.toggle-button__input:checked + .toggle-button__label {
+/* .toggle-button__input:checked + .toggle-button__label {
+  left: 22px;
+  background-color: #ffffff;
+} */
+
+.toggle-button__input-active {
+  left: 22px;
+  background-color: #ffffff;
+}
+.toggle-button__label-active {
   left: 22px;
   background-color: #ffffff;
 }

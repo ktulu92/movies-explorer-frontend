@@ -42,7 +42,7 @@ function Header(props) {
           </nav>
           <button className="account-button header__account-button">
         <div className="account-button__icon header__account-button__icon"></div>
-        <a className="account-button__link header__account-button__link " href="/profile">Аккаунт</a>
+        <Link className="account-button__link header__account-button__link " to="/profile">Аккаунт</Link>
         </button>
 
           <button

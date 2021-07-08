@@ -18,20 +18,20 @@ function BurgerMenu(props) {
       <button className="burger-menu__close-button" onClick={onClick}></button>
       <ul className="burger-menu__navigation">
         <li className="burger-menu__navigaton-cell">
-          <a className="burger-menu__link" href="/">
+          <Link className="burger-menu__link" to="/">
             Главная
-          </a>
+          </Link>
         </li>
         <li className="burger-menu__navigaton-cell">
-          <a className="burger-menu__link" href="/movies">
+          <Link className="burger-menu__link" to="/movies">
             Фильмы
-          </a>
+          </Link>
         </li>
         <li className="burger-menu__navigaton-cell">
           {" "}
-          <a className="burger-menu__link" href="/saved-movies">
+          <Link className="burger-menu__link" to="/saved-movies">
             Сохраненные фильмы{" "}
-          </a>
+          </Link>
         </li>
         <AccountButton />
       </ul>

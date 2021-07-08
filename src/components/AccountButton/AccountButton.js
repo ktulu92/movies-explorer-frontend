@@ -12,11 +12,10 @@ import {
 function AccountButton(props) {
   // const { isLoggedIn, email, onOut } = props;
   return (
-    <button className="account-button">
+    <button className="account-button" >
         <div className="account-button__icon"></div>
-        <a className="account-button__link" href="/profile">Аккаунт</a>
-    
-    </button>
+        <Link className="account-button__link" to="/profile">Аккаунт</Link>
+        </button>
   );
 }
 
