@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import MovieCard from "../MovieCard/MovieCard";
 import SearchForm from "../SearchForm/SearchForm";
 import Preloader from "../Preloader/Preloader";
@@ -15,37 +15,60 @@ function MovieCardList({
 
   isLoading,
   searchFilm,
-  onCheckbox,
+  onChange,
 
   checkboxChecked,
   isSavedMovies,
 }) {
-  //
+  const [filmsToRender, setFilmsToRender] = useState(savedMovies);
+
+  function handleShortFilms(movieShortList) {
+    // debugger
+    return movieShortList.filter((movie) => {
+      return movie.duration <= 40;
+    });
+  }
+
+  useEffect(() => {
+    console.log(filmsToRender);
+    if (checkboxChecked) {
+      setFilmsToRender(handleShortFilms(savedMovies));
+      console.log(filmsToRender);
+    }
+    
+    else setFilmsToRender(savedMovies);
+    console.log(filmsToRender);
+  }, [checkboxChecked]);
+
+  console.log(numberOfMovies);
+  console.log(filmsToRender.length);
 
   return (
     <section className="movie-card-list">
       <Preloader isLoading={isLoading} />
-      
+
       <SearchForm
         searchFilm={searchFilm}
-        onCheckbox={onCheckbox}
+        onChange={onChange}
         checkboxChecked={checkboxChecked}
       />
 
       <div className="movie-card-list-container">
-        {savedMovies.slice(numberOfAddedMovies, numberOfMovies).map((card) => (
-          <MovieCard
-            key={card.movieId}
-            savedMovies={savedMovies}
-            isSavedMovies={isSavedMovies} //saved
-            movie={card}
-            likeMovie={likeMovie} //функция лайка(сохранения)
-            deleteMovie={deleteMovie} //функция удаления
-          />
-        ))}
+        {filmsToRender
+          .slice(numberOfAddedMovies, numberOfMovies)
+          .map((card) => (
+            <MovieCard
+              key={card.movieId}
+              savedMovies={savedMovies}
+              isSavedMovies={isSavedMovies} //saved
+              movie={card}
+              likeMovie={likeMovie} //функция лайка(сохранения)
+              deleteMovie={deleteMovie} //функция удаления
+            />
+          ))}
       </div>
 
-      {savedMovies.length === 0 ? (
+      {filmsToRender.length === 0 ? (
         <p className="movie-card-list__empty-list">
           Воспользуйтесь поиском, чтобы найти фильмы!
         </p>
@@ -55,7 +78,7 @@ function MovieCardList({
             isSavedMovies
               ? "movie-card-list__more-button movie-card-list__more-button-inactive"
               : "movie-card-list__more-button" &&
-                numberOfMovies > savedMovies.length
+                numberOfMovies >= filmsToRender.length
               ? "movie-card-list__more-button movie-card-list__more-button-inactive"
               : "movie-card-list__more-button"
           }

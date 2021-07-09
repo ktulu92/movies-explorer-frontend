@@ -2,7 +2,7 @@ const urlData = "https://api.explorer-movies.nomoredomains.icu"; //До депл
 
 //ok
 export function register(name, email, password) {
-  debugger
+ 
   return fetch(`${urlData}/signup`, {
     method: "POST",
     headers: {

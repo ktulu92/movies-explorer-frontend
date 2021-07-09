@@ -87,7 +87,7 @@ function Profile(props) {
 
         <Link
           onClick={props.onClick}
-          to="/login"
+          to="/"
           type="button"
           className="profile__button-out"
         >

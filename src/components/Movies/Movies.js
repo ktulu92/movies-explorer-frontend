@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 
 import MoviesCardList from "../MovieCardList/MovieCardList";
+// debugger
+function Movies(props) 
 
-function Movies(props) {
+{
+
+
+
+
+
+
   return (
     <section className="movies">
       <Header isLogin={props.isLogin} onClick={props.onClick} />
@@ -13,8 +21,8 @@ function Movies(props) {
       <MoviesCardList
         isSavedMovies={props.isSavedMovies}
         onClick={props.onClick}
-        // movieSaved={false}
-        
+        movieSaved={false}
+
         numberOfAddedMovies={props.numberOfAddedMovies}
         numberOfMovies={props.numberOfMovies}
         savedMovies={props.savedMovies}
@@ -24,8 +32,11 @@ function Movies(props) {
         searchFilm={props.searchFilm}
         onAddMovies={props.onAddMovies}
         isLoading={props.isLoading}
-        onCheckbox={props.onCheckbox}
+        onChange={props.onChange}
+
         checkboxChecked={props.checkboxChecked}
+       
+        
       />
       <Footer />
     </section>

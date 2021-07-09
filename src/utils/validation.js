@@ -15,7 +15,7 @@ export function useFormWithValidation() {
         const value = input.value;
         setValues({ ...values, [name]: value });
         setErrors({ ...errors, [name]: input.validationMessage });
-        debugger
+        
         setIsFormValid(input.closest('form').checkValidity());
     }
     

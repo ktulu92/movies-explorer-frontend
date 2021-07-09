@@ -52,8 +52,8 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
 
   //Стейт для чекбокса короткометражек
-  const [checkboxChecked, setCheckboxChecked] = React.useState(true);
-
+  const [checkboxChecked, setCheckboxChecked] = React.useState(false);
+  console.log(checkboxChecked);
   //Стейты для ошибок при рендере карточек и авторизации/регистрации
 
   const [movies, setMovies] = useState([]);
@@ -84,8 +84,11 @@ function App() {
         const beatMovies = res.map((item) => {
           const imageLink = `https://api.nomoreparties.co${item.image.url}`;
           const thumbnailLink = `https://api.nomoreparties.co${item.image.formats.thumbnail.url}`;
+          const countryName = item.country ? item.country : "Cтрана неизвестна";
+          const nameRu = item.nameRU.replace(/(^\s|\s$)/g, "");
+
           return {
-            country: item.country,
+            country: countryName,
             director: item.director,
             duration: item.duration,
             year: item.year,
@@ -94,28 +97,31 @@ function App() {
             trailer: item.trailerLink,
             thumbnail: thumbnailLink,
             movieId: item.id.toString(),
-            nameRU: item.nameRU,
+            nameRU: nameRu,
             nameEN: item.nameEN,
           };
         });
+
         localStorage.setItem("moviesData", JSON.stringify(beatMovies));
         setMovies(JSON.parse(localStorage.getItem("moviesData")));
       })
       .catch((err) => {
         setMoviesErrorMessage("Что то пошло не так");
-        console.log(err);
-      })
-      .finally(() => {
         setIsLoading(false);
+        console.log(err);
       });
+    // .finally(() => {
+
+    // });
   }
 
-  //Смена стейта чекбокса поиска короткометражек
+  // Смена стейта чекбокса поиска короткометражек
   function handleCheckbox(e) {
     setCheckboxChecked(!checkboxChecked);
+    // console.log(checkboxChecked)
   }
 
-  //Реализация поиска короткометражек 
+  // //Реализация поиска короткометражек
   function handleShortFilms(movieShortList) {
     return movieShortList.filter((movie) => {
       return movie.duration <= 40;
@@ -124,42 +130,56 @@ function App() {
 
   //Будет общая функция фильтрации
   function filterMoviesArray(moviesData, keyWord) {
-    let filteredMovies = moviesData.filter((movie) => {
+    const filteredMovies = moviesData.filter((movie) => {
       return movie.nameRU.toLowerCase().includes(keyWord.toLowerCase());
     });
 
     if (checkboxChecked) {
-      setCheckboxChecked(false);
+      // setCheckboxChecked(false);
+      console.log(checkboxChecked);
       return handleShortFilms(filteredMovies);
     } else {
+      // setCheckboxChecked(true);
+      console.log(checkboxChecked);
       return filteredMovies;
     }
+
+    // return filteredMovies;
   }
 
   //Поиск по общему массиву фильмов
   function handleSearchFilm(keyWord) {
     setIsLoading(true); //стейт для прелоадера
-    handleGetMovies();
+    // handleGetMovies();
     setTimeout(() => setIsLoading(false), 1000);
 
-    let result = filterMoviesArray(movies, keyWord);
+    const result = filterMoviesArray(movies, keyWord);
     setFilteredMovies(result);
     localStorage.setItem("filteredMovies", JSON.stringify(result));
-
-    //
   }
 
   //Поиск по  массиву сохраненных фильмов
   function handleSearchSavedFilm(keyWord) {
-    debugger;
     setIsLoading(true); //стейт для прелоадера
-
     setTimeout(() => {
       let result = filterMoviesArray(savedMovies, keyWord);
       setSavedMovies(result);
       setIsLoading(false); //смена стейта для закрытия прелоадера
     }, 1000);
   }
+
+
+  // const [filteredMovies, setFilteredMovies] = useState([]); //прокидываем в /movies
+
+  // const [savedMovies, setSavedMovies] = useState([]); //прокидываем в /saved-movies
+
+
+
+
+
+
+
+
 
   //функционал карточек фильмов...
 
@@ -423,11 +443,13 @@ function App() {
             isSavedMovies={false} //стейт для разных страниц (movies\saved-movies)
             isLoading={isLoading} //стейт для прелоадера
             onClick={handleOpenBurgerMenuClick} //обработчик открытия меню
-            onCheckbox={handleCheckbox} //хэндлер чекбокса короткометражных
+            onChange={handleCheckbox} //хэндлер чекбокса короткометражных
             checkboxChecked={checkboxChecked} //cостояние чекбокса короткометражных
             handleAddMovies={handleAddMovies} //обработчик события кнопки еще
             searchFilm={handleSearchFilm}
             savedMovies={filteredMovies}
+            // handleShortFilms={handleShortFilms}
+            // filterShortMovies={handleShortFilms}
           />
 
           <ProtectedRoute
@@ -437,7 +459,7 @@ function App() {
             component={SavedMovieCardList}
             onClick={handleOpenBurgerMenuClick} //обработчик события открытия бокового меню
             isSavedMovies={true} ////стейт для разных страниц (movies\saved-movies)
-            oonCheckbox={handleCheckbox} //хэндлер чекбокса короткометражных
+            onChange={handleCheckbox} //хэндлер чекбокса короткометражных
             checkboxChecked={checkboxChecked} //cостояние чекбокса короткометражных
             isLoading={isLoading} //стейт для прелоадера
             isLogin={isLogin} //???
@@ -446,6 +468,8 @@ function App() {
             savedMovies={savedMovies}
             likeMovie={likeMovie} //функция лайка(сохранения)
             deleteMovie={deleteMovie} //функция удаления
+            // handleShortFilms={handleShortFilms}
+            // filterShortMovies={handleShortFilms}
           />
 
           <ProtectedRoute
@@ -471,7 +495,7 @@ function App() {
         />
 
         <Route>
-          {isLogin ? <Redirect to="/" /> : <Redirect to="/signin" />}
+          {isLogin ? <Redirect to="/movies" /> : <Redirect to="/" />}
         </Route>
       </div>
     </CurrentUserContext.Provider>

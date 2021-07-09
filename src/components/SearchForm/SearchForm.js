@@ -4,7 +4,7 @@ import RunningTitle from "../RunningTitle/RunningTitle";
 
 import ToggleButton from "../ToggleButton/ToggleButton";
 
-function SearchForm({ searchFilm, onCheckbox, checkboxChecked }) {
+function SearchForm({ searchFilm, onChange, checkboxChecked }) {
   const [searchString, setSearchString] = React.useState("");
 
   function handleInput(evt) {
@@ -18,10 +18,10 @@ function SearchForm({ searchFilm, onCheckbox, checkboxChecked }) {
   }
 
   function handleCheckbox(evt) {
-    evt.preventDefault();   
-    searchFilm(searchString);
-    console.log(onCheckbox())
-    onCheckbox();
+    // evt.preventDefault();   
+    // searchFilm(searchString);
+    // console.log(onCheckbox())
+    // onCheckbox();
   }
   return (
     <section className="search">
@@ -39,7 +39,7 @@ function SearchForm({ searchFilm, onCheckbox, checkboxChecked }) {
       </form>
       <div className="search__toggle-container">
         <ToggleButton
-          onClick={handleCheckbox}
+          onChange={onChange}
           checkboxChecked={checkboxChecked}
         />
         <p className="search__toggle-label">Короткометражки</p>
