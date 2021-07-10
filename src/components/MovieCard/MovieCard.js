@@ -43,7 +43,7 @@ function MovieCard(props) {
   function handleDisLike() {
     // ;
     setIsLiked(false);
-    console.log(currentMovie);
+    
     deleteMovie(currentMovie._id);
     // setIsLiked(false);
   }

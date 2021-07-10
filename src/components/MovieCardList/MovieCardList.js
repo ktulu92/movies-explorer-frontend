@@ -2,46 +2,40 @@ import React, { useEffect, useState } from "react";
 import MovieCard from "../MovieCard/MovieCard";
 import SearchForm from "../SearchForm/SearchForm";
 import Preloader from "../Preloader/Preloader";
+import {filterShortMovies} from "../../utils/utils";
 
 function MovieCardList({
   handleAddMovies,
-
   likeMovie,
   deleteMovie,
   savedMovies,
-
   numberOfAddedMovies,
   numberOfMovies,
-
   isLoading,
   searchFilm,
   onChange,
-
   checkboxChecked,
   isSavedMovies,
 }) {
+ 
   const [filmsToRender, setFilmsToRender] = useState(savedMovies);
-
-  function handleShortFilms(movieShortList) {
-    // debugger
-    return movieShortList.filter((movie) => {
-      return movie.duration <= 40;
-    });
-  }
+  
 
   useEffect(() => {
-    console.log(filmsToRender);
+    // console.log(filmsToRender);
     if (checkboxChecked) {
-      setFilmsToRender(handleShortFilms(savedMovies));
-      console.log(filmsToRender);
+      setFilmsToRender(filterShortMovies(savedMovies));
+      // console.log(filmsToRender);
     }
     
     else setFilmsToRender(savedMovies);
-    console.log(filmsToRender);
-  }, [checkboxChecked]);
+    // console.log(filmsToRender);
+  }, [checkboxChecked,
+    savedMovies,
+    // filmsToRender
+  ]);
 
-  console.log(numberOfMovies);
-  console.log(filmsToRender.length);
+
 
   return (
     <section className="movie-card-list">

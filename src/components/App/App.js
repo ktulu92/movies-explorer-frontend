@@ -53,7 +53,7 @@ function App() {
 
   //Стейт для чекбокса короткометражек
   const [checkboxChecked, setCheckboxChecked] = React.useState(false);
-  console.log(checkboxChecked);
+
   //Стейты для ошибок при рендере карточек и авторизации/регистрации
 
   const [movies, setMovies] = useState([]);
@@ -108,11 +108,9 @@ function App() {
       .catch((err) => {
         setMoviesErrorMessage("Что то пошло не так");
         setIsLoading(false);
-        console.log(err);
+      
       });
-    // .finally(() => {
-
-    // });
+  
   }
 
   // Смена стейта чекбокса поиска короткометражек
@@ -156,6 +154,7 @@ function App() {
     const result = filterMoviesArray(movies, keyWord);
     setFilteredMovies(result);
     localStorage.setItem("filteredMovies", JSON.stringify(result));
+      
   }
 
   //Поиск по  массиву сохраненных фильмов
@@ -191,7 +190,7 @@ function App() {
         const films = [...savedMovies, savedMovie];
         localStorage.setItem("savedMovies", JSON.stringify(films));
         setSavedMovies((prevState) => [...prevState, savedMovie]);
-        console.log(savedMovies);
+       
       })
       .catch((err) => console.log(err));
   }
@@ -359,6 +358,10 @@ function App() {
     }
   }, [isLogin]);
 
+
+
+
+
   useEffect(() => {
     const movies = JSON.parse(localStorage.getItem("moviesData"));
     if (movies) {
@@ -448,8 +451,7 @@ function App() {
             handleAddMovies={handleAddMovies} //обработчик события кнопки еще
             searchFilm={handleSearchFilm}
             savedMovies={filteredMovies}
-            // handleShortFilms={handleShortFilms}
-            // filterShortMovies={handleShortFilms}
+           
           />
 
           <ProtectedRoute
@@ -468,8 +470,9 @@ function App() {
             savedMovies={savedMovies}
             likeMovie={likeMovie} //функция лайка(сохранения)
             deleteMovie={deleteMovie} //функция удаления
-            // handleShortFilms={handleShortFilms}
-            // filterShortMovies={handleShortFilms}
+            checkboxChecked={checkboxChecked} //cостояние чекбокса короткометражных
+            handleAddMovies={handleAddMovies} //обработчик события кнопки еще
+            
           />
 
           <ProtectedRoute

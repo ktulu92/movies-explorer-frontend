@@ -4,7 +4,6 @@ import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 
 import MovieCardList from "../MovieCardList/MovieCardList";
-import Preloader from "../Preloader/Preloader";
 
 function SavedMovieCardList(props) {
   return (
