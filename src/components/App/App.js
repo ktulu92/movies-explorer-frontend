@@ -161,7 +161,7 @@ function App() {
   function handleSearchSavedFilm(keyWord) {
     setIsLoading(true); //стейт для прелоадера
     setTimeout(() => {
-      let result = filterMoviesArray(savedMovies, keyWord);
+      const result = filterMoviesArray(savedMovies, keyWord);
       setSavedMovies(result);
       setIsLoading(false); //смена стейта для закрытия прелоадера
     }, 1000);
