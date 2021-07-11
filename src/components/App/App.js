@@ -18,6 +18,7 @@ import NotFound from "../NotFound/NotFound";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
 import Movies from "../Movies/Movies";
 import SavedMovieCardList from "../SavedMovieCardList/SavedMovieCardList";
+import {filterShortMovies} from "../../utils/utils";
 
 import { CurrentUserContext } from "../../context/CurrentUserContext";
 
@@ -42,11 +43,7 @@ function App() {
   const [isLogin, setIsLogin] = useState(false);
   const [isRegistered, setIsRegistered] = useState(false);
 
-  //Стейты для функционала отображения карточек в зависимости от разрешения экрана
 
-  const [numberOfMovies, setNumberOfMovies] = React.useState();
-  const [numberOfAddedMovies, setNumberOfAddedMovies] = React.useState();
-  const [windowWidth, setWindowWidth] = useState();
 
   //Стейт для прелоадера
   const [isLoading, setIsLoading] = useState(false);
@@ -86,6 +83,7 @@ function App() {
           const thumbnailLink = `https://api.nomoreparties.co${item.image.formats.thumbnail.url}`;
           const countryName = item.country ? item.country : "Cтрана неизвестна";
           const nameRu = item.nameRU.replace(/(^\s|\s$)/g, "");
+          // const nameRu = item.nameRU;
 
           return {
             country: countryName,
@@ -119,26 +117,37 @@ function App() {
     // console.log(checkboxChecked)
   }
 
-  // //Реализация поиска короткометражек
-  function handleShortFilms(movieShortList) {
-    return movieShortList.filter((movie) => {
-      return movie.duration <= 40;
-    });
-  }
+  // // //Реализация поиска короткометражек
+  // function handleShortFilms(movieShortList) {
+  //   return movieShortList.filter((movie) => {
+  //     return movie.duration <= 40;
+  //   });
+  // }
 
   //Будет общая функция фильтрации
   function filterMoviesArray(moviesData, keyWord) {
     const filteredMovies = moviesData.filter((movie) => {
-      return movie.nameRU.toLowerCase().includes(keyWord.toLowerCase());
+      // debugger
+      // console.log(movie.nameRU)
+      // console.log(keyWord)
+      console.log(movie.nameRU.toLowerCase().includes(keyWord.toLowerCase()))
+
+      return movie.nameRU.toLowerCase().includes(keyWord.toLowerCase())
+      
+ 
     });
+
+
+
+
 
     if (checkboxChecked) {
       // setCheckboxChecked(false);
       console.log(checkboxChecked);
-      return handleShortFilms(filteredMovies);
+      return filterShortMovies(filteredMovies);
     } else {
       // setCheckboxChecked(true);
-      console.log(checkboxChecked);
+      // console.log(checkboxChecked);
       return filteredMovies;
     }
 
@@ -379,6 +388,15 @@ function App() {
     checkToken();
   }, []);
 
+
+///Переписать добавление карточек
+    //Стейты для функционала отображения карточек в зависимости от разрешения экрана
+
+    const [numberOfMovies, setNumberOfMovies] = React.useState(
+    );
+    const [numberOfAddedMovies, setNumberOfAddedMovies] = React.useState();
+    const [windowWidth, setWindowWidth] = useState();
+
   useEffect(() => {
     function handleResize() {
       if (window.innerWidth !== windowWidth) {
@@ -395,7 +413,7 @@ function App() {
       setNumberOfMovies(12);
       setNumberOfAddedMovies(3);
     }
-    if (windowWidth >= 768 && windowWidth < 1200) {
+    if (windowWidth >= 768 && windowWidth < 920) {
       setNumberOfMovies(8);
       setNumberOfAddedMovies(2);
     }
@@ -406,7 +424,7 @@ function App() {
   }, [windowWidth]);
 
   function handleAddMovies() {
-    setNumberOfMovies(numberOfMovies + numberOfAddedMovies);
+    setNumberOfMovies(prevState => {return prevState +numberOfAddedMovies});
   }
 
   return (
@@ -439,7 +457,7 @@ function App() {
             moviesErrorMessage={moviesErrorMessage}
             component={Movies} //
             isLogin={isLogin} //
-            numberOfAddedMovies={numberOfAddedMovies} //количество добавляемых фильмов по кнопке
+            // numberOfAddedMovies={numberOfAddedMovies} //количество добавляемых фильмов по кнопке
             numberOfMovies={numberOfMovies} //количество фильмов по умолчанию при рендере
             likeMovie={likeMovie} //функция лайка(сохранения)
             deleteMovie={deleteMovie} //функция удаления
@@ -470,8 +488,8 @@ function App() {
             savedMovies={savedMovies}
             likeMovie={likeMovie} //функция лайка(сохранения)
             deleteMovie={deleteMovie} //функция удаления
-            checkboxChecked={checkboxChecked} //cостояние чекбокса короткометражных
-            handleAddMovies={handleAddMovies} //обработчик события кнопки еще
+            
+            // handleAddMovies={handleAddMovies} //обработчик события кнопки еще
             
           />
 
