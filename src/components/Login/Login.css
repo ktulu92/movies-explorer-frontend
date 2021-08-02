@@ -29,8 +29,8 @@
 .login__logo {
   height: 38px;
   width: 38px;
-  background-image: url(../../images/logo.png);
-  background-repeat: no-repeat;
+  /* background-image: url(../../images/logo.png);
+  background-repeat: no-repeat; */
 }
 .login__title {
   font-family: Inter;

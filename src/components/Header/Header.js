@@ -8,6 +8,7 @@ import {
   Redirect,
   useHistory,
 } from "react-router-dom";
+import logo from "../../images/logo.svg"
 import AccountButton from "../AccountButton/AccountButton";
 
 function Header(props) {
@@ -16,7 +17,7 @@ function Header(props) {
     <header className="header">
 
       <Link to="/" className="header__logo-link">
-        <div className="header__logo"></div>
+        <img alt="logo" src={logo} className="header__logo"></img>
       </Link>
 
 

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 
 import RunningTitle from "../RunningTitle/RunningTitle";
 import Preloader from "../Preloader/Preloader";
+import avatar from "../../images/avatar.jpeg";
+
 
 function AboutMe(props) {
   // const { isLoggedIn, email, onOut } = props;
@@ -12,14 +14,14 @@ function AboutMe(props) {
       <RunningTitle title="Студент" />
       <div className="about-me__info">
         <div className="about-me__user-text-info">
-      <h1 className="about-me__name">Виталий</h1>
-      <h3 className="about-me__profession">Фронтенд-разработчик, 30 лет</h3>
+      <h1 className="about-me__name">Иван</h1>
+      <h3 className="about-me__profession">Фронтенд-разработчик, 29 лет</h3>
       <p className="about-me__bio">
-        Я родился и живу в Саратове, закончил факультет экономики СГУ. У меня
-        есть жена и дочь. Я люблю слушать музыку, а ещё увлекаюсь бегом. Недавно
-        начал кодить. С 2015 года работал в компании «СКБ Контур». После того,
-        как прошёл курс по веб-разработке, начал заниматься фриланс-заказами и
-        ушёл с постоянной работы.
+      Я живу в Санкт-Петербурге, закончил факультет многоканальной
+            электросвязи СибГУТИ. Я люблю слушать музыку на виниле, а ещё
+            увлекаюсь велоспортом. Веб-разработка мое хобби с 2020 года. Хочу
+            сменить сферу деятельности и найти постоянную работу в этом
+            направлении.
       </p>
 
       <ul className="about-me_contact-navigation">
@@ -31,7 +33,7 @@ function AboutMe(props) {
         </li>
       </ul>
       </div>
-      <div className="about-me__avatar" alt="user-avatar"></div>
+      <img className="about-me__avatar" src={avatar} alt="user-avatar"></img>
       </div>
      
 
@@ -41,19 +43,26 @@ function AboutMe(props) {
   <h4 className="about-me__portfolio-title">Портфолио</h4>
   <ul className="about-me__portfolio-navigation">
   <li className="about-me__portfolio-cell">
-    <a className="about-me__portfolio-link"href="https://www.github.com">Статичный сайт
+    <a className="about-me__portfolio-link"href="https://ktulu92.github.io/how-to-learn" target="_blank"
+     rel="noreferrer">Статичный сайт
       <div className = "about-me__portfolio-link-icon">↗</div>
 </a>
     
   </li>
   <li className="about-me__portfolio-cell">
-    <a className="about-me__portfolio-link"href="https://www.github.com">Адаптивный сайт
+    <a className="about-me__portfolio-link"href="https://ktulu92.github.io/russian-travel"
+     target="_blank"
+     rel="noreferrer"
+     >Адаптивный сайт
       <div className = "about-me__portfolio-link-icon">↗</div>
       </a>
     
   </li>
   <li className="about-me__portfolio-cell">
-    <a className="about-me__portfolio-link"href="https://www.github.com">Одностраничное приложение
+    <a className="about-me__portfolio-link"href="https://github.com/ktulu92/react-mesto-api-full"
+     target="_blank"
+     rel="noreferrer">
+       Одностраничное приложение
       <div className = "about-me__portfolio-link-icon">↗</div>
       </a>
     

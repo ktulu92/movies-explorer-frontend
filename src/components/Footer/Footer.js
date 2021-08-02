@@ -23,7 +23,7 @@ function Footer(props) {
           <li className="footer__navigation-cell">
             <a
               className="footer__navigation-link"
-              href="https://yandex.ru/maps"
+              href="https://praktikum.yandex.ru"
               target="_blank"
               rel="noreferrer"
             >
@@ -43,7 +43,7 @@ function Footer(props) {
           <li className="footer__navigation-cell">
             <a
               className="footer__navigation-link"
-              href="https://www.facebook.com/"
+              href="https://github.com/ktulu92/react-mesto-api-full"
               target="_blank"
               rel="noreferrer"
             >

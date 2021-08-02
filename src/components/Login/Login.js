@@ -5,6 +5,7 @@ import { Link, useHistory, withRouter } from "react-router-dom";
 // import MovieCard from "../MovieCard/MovieCard";
 // import Header from "../Header/Header";
 import { useFormWithValidation } from "../../utils/validation";
+import logo from "../../images/logo.svg"
 
 function Login(props) {
   const [email, setEmail] = useState("");
@@ -35,7 +36,7 @@ function Login(props) {
       {/* <Header/> */}
       <form className="login__form " onSubmit={handleSubmit} noValidate>
         <Link to="/" className="header__logo-link">
-          <div className="header__logo"></div>
+          <img alt="logo" src={logo}className="header__logo"></img>
         </Link>
         <h3 className="login__title">Рады видеть!</h3>
 

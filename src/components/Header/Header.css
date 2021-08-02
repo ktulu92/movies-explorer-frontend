@@ -16,8 +16,7 @@
 .header__logo {
   height: 38px;
   width: 38px;
-  background-image: url(../../images/logo.png);
-  background-repeat: no-repeat;
+  
 }
 .header__menu-auth {
   width: 183px;

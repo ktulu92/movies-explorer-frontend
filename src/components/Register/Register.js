@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { useFormWithValidation } from "../../utils/validation";
+import logo from "../../images/logo.svg"
 
 /* // import { CurrentUserContext } from "../contexts/CurrentUserContext"; */
 
@@ -41,7 +42,7 @@ function Register(props) {
         </a> */}
 
         <Link to="/" className="header__logo-link">
-          <div className="header__logo"></div>
+          <img alt="logo" src={logo} className="header__logo"></img>
         </Link>
 
         <h3 className="register__title">Добро пожаловать!</h3>
