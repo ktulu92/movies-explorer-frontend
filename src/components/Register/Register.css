@@ -1,0 +1,98 @@
+.register {
+  margin-top: 70px;
+  display: flex;
+  flex-direction: column;
+}
+
+.register__form {
+  width: 396px;
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+}
+.register__logo {
+  height: 38px;
+  width: 38px;
+  background-image: url(../../images/logo.png);
+  background-repeat: no-repeat;
+}
+
+.register__main-page-link{
+ 
+}
+.register__title {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  /* identical to box height */
+
+  color: #000000;
+  margin: 40px auto 40px 0;
+}
+.register__input-name {
+}
+
+.register__input-e-mail {
+}
+
+.register__input-password {
+}
+
+
+.register__input {
+  background: #f9f9f9;
+  border-radius: 8px;
+  width: 396px;
+  height: 46px;
+  border: none;
+  /* margin-bottom: 20px; */
+  margin-top: 10px;
+}
+
+.register__submit-button {
+  margin-top: 70px;
+  width: 396px;
+  height: 46px;
+  background: #000000;
+  border-radius: 3px;
+  color: white;
+}
+
+.register__input-label {
+  margin-bottom: 10px;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 12px;
+
+  color: #a0a0a0;
+}
+
+.register__button-in {
+  text-decoration: none;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+
+  text-align: center;
+
+  color: #000000;
+}
+.register__subtitle {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  margin-bottom: 70px;
+
+  text-align: center;
+
+  color: #a0a0a0;
+}

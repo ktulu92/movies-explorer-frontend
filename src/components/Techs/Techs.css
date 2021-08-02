@@ -1,0 +1,115 @@
+.techs {
+  padding-left: 70px;
+ 
+  padding-right: 70px;
+  background-color: #f2f2f2;
+}
+
+@media (min-width: 320px) and (max-width: 600px) {
+  .techs {
+    padding-left: 14px;
+    padding-right: 14px;
+    height: 651px;
+  }
+}
+
+.techs__nav {
+  display: flex;
+  margin-top: 150px; 
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 100px;
+  height: 36px;
+  justify-content: center;
+  padding-left: 0;
+}
+
+@media (min-width: 320px) and (max-width: 600px) {
+  .techs__nav{
+    flex-wrap: wrap;
+    margin-top: 50px;
+  }
+}
+.techs__nav-element {
+  color: black;
+  text-align: center;
+  display: inline-block;
+  /* padding: 0.7em 1.5em; */
+  height: 60px;
+  width: 90px;
+  list-style-type: none;
+  border-radius: 10px;
+  background: #e8e8e8;
+  margin-right: 10px;
+  font-size: 12px;
+  line-height: 60px;
+  text-align: center;
+}
+
+
+
+.techs__title {
+  
+  margin-top: 160px;
+  margin-bottom: 0;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 50px;
+  line-height: 58px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  margin: 80px auto 22px auto;
+  max-width: 720px;
+  font-family: "Inter", "Arial", sans-serif;
+  font-style: normal;
+  text-align: center;
+}
+
+
+
+.techs__subtitle {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 18px;
+  text-align: center;
+  letter-spacing: -0.04em;
+  max-width: 460px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0px;
+}
+@media (min-width: 601px) and (max-width: 1024px) {
+
+}
+@media (min-width: 320px) and (max-width: 600px) {
+  .techs__nav-element {
+    margin-top: 10px;;
+    width: 90px;
+    height: 46px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 50px;
+    text-align: center;
+    letter-spacing: -0.04em;
+  }
+  .techs__nav-element:nth-child(7){
+    margin-right: 112px;
+  }
+
+  .techs__title {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 36px;
+    text-align: center;
+    letter-spacing: -0.04em;
+    width: 292px;
+  }
+}
