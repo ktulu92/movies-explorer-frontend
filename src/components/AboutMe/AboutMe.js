@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 
 import RunningTitle from "../RunningTitle/RunningTitle";
+import Preloader from "../Preloader/Preloader";
 
 function AboutMe(props) {
   // const { isLoggedIn, email, onOut } = props;
   return (
+   
     <section className="about-me" id="about-me">
+       <Preloader/>
       <RunningTitle title="Студент" />
       <div className="about-me__info">
         <div className="about-me__user-text-info">

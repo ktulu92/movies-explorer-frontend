@@ -95,6 +95,7 @@
 
   .element__title {
     font-family: Inter;
+    max-width: 160px;
 
     font-style: normal;
     font-weight: 500;

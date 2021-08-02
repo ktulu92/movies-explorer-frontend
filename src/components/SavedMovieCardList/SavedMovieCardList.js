@@ -1,27 +1,31 @@
-import React from "react";
-// import { CurrentUserContext } from "../contexts/CurrentUserContext";
-// import MovieCard from "../MovieCard/MovieCard";
+import React, { useEffect, useState } from "react";
+
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
-import SearchForm from "../SearchForm/SearchForm";
+
 import MovieCardList from "../MovieCardList/MovieCardList";
 
 function SavedMovieCardList(props) {
-  const { isLogin, onClick, isSavedMovies } = props;
-
   return (
     <section className="movie-card-list">
-      <Header isLogin={isLogin} onClick={onClick} />
+      <Header isLogin={props.isLogin} onClick={props.onClick} />
 
-      
-        {/* Здесь будет добавление карточек из JSON  */}
-
-        <MovieCardList isSavedMovies={isSavedMovies} />
-
-        {/* <MovieCard isSavedMovies={isSavedMovies}title="33 слова о дизайне" duration="1ч" />
-
-        <MovieCard isSavedMovies={isSavedMovies} title="33 слова о дизайне" duration="1ч" /> */}
-    
+      <MovieCardList
+        isSavedMovies={props.isSavedMovies}
+        onClick={props.onClick}
+        testFunct={props.testFunct}
+        isLogin={props.isLogin}
+        movieSaved={props.movieSaved}
+        likeMovie={props.likeMovie}
+        deleteMovie={props.deleteMovie}
+        savedMovies={props.savedMovies}
+        onAddMovies={props.onAddMovies}
+        numberOfMovies={props.numberOfMovies}
+        isBusy={props.isBusy} //для прелоадера
+        onChange={props.onChange}
+        checkboxChecked={props.checkboxChecked}
+        searchFilm={props.searchFilm} //поиск по фильмам
+      />
 
       <Footer />
     </section>

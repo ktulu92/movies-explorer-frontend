@@ -9,7 +9,10 @@
   margin-right: 70px;
   justify-content: space-between;
 }
-
+.movie-card-list__empty-list{
+margin-left: auto;
+margin-right: auto;
+}
 .movie-card-list__more-button {
   width: 320px;
   height: 36px;
@@ -27,6 +30,11 @@
   margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.movie-card-list__more-button-inactive{
+  display: none;
+
 }
 
 @media (min-width: 320px) and (max-width: 425px) {

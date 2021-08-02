@@ -1,3 +1,14 @@
+
+
+# Финальный дипломный проект Яндекс Практикум.
+Бэк  http://api.explorer-movies.nomoredomains.icu/signin
+Фронт http://explorer-movies.nomoredomains.icu/signin
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

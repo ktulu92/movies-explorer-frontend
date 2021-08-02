@@ -1,45 +1,89 @@
-import React from "react";
-import { Link, withRouter } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useHistory, withRouter } from "react-router-dom";
 
 /* // import { CurrentUserContext } from "../contexts/CurrentUserContext"; */
-import MovieCard from "../MovieCard/MovieCard";
-import Header from "../Header/Header";
+// import MovieCard from "../MovieCard/MovieCard";
+// import Header from "../Header/Header";
+import { useFormWithValidation } from "../../utils/validation";
 
 function Login(props) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const {
+    values,
+    setValues,
+    handleChange,
+    errors,
+    isFormValid,
+    resetForm,
+  } = useFormWithValidation();
+
+  // const handleEmailChange = (e) => {
+  //   setEmail(e.target.value);
+  // };
+  // const handlePasswordChange = (e) => {
+  //   setPassword(e.target.value);
+  // };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    props.onLogin(values);
+  };
+
   return (
     <section className="login">
       {/* <Header/> */}
-      <div className="login__form">
-
-      
-
-        <div className="login__logo"></div>
+      <form className="login__form " onSubmit={handleSubmit} noValidate>
+        <Link to="/" className="header__logo-link">
+          <div className="header__logo"></div>
+        </Link>
         <h3 className="login__title">Рады видеть!</h3>
 
         <label className="login__input-label">
           E-mail
           <input
-            className="login__input-e-mail register__input"
-            name="E-mail"
+            id="email"
+            className="login__input-email login__input"
+            name="email"
+            type="email"
             placeholder=""
+            onChange={handleChange}
+            required
           />
+          <span className="login__input-error">{errors.email}</span>
         </label>
         <label className="login__input-label">
           Пароль
           <input
-            className="login__input-password register__input"
+            className="login__input-password login__input"
+            id="password"
             name="password"
             placeholder=""
+            onChange={handleChange}
+            minLength="8"
+            required
+            type="password"
           />
+          <span className="login__input-error">{errors.password}</span>
         </label>
-        <button className="login__submit-button">Войти</button>
+        <span className="login__sumbit-error">{props.errorMessage}</span>
+        <button
+          type="submit"
+          disabled={!isFormValid}
+          className={`login__submit-button 
+        
+        ${isFormValid ? "" : "login__submit-button_inactive"}
+        `}
+        >
+          Войти
+        </button>
         <p className="register__subtitle">
           Еще не зарегистрированы?{" "}
-          <Link to="/login" type="button" className="login__button-up">
+          <Link to="/signup" type="button" className="login__button-up ">
             Регистрация
           </Link>
         </p>
-      </div>
+      </form>
     </section>
   );
 }
