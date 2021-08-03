@@ -13,8 +13,6 @@
   display: flex;
   margin-top: 70px;
   justify-content: space-between;
-  /* margin-left: auto;
-  margin-right: auto; */
 }
 
 .about-project__about-title {
@@ -25,10 +23,7 @@
   font-weight: normal;
   font-size: 22px;
   line-height: 27px;
-  /* identical to box height */
-
   letter-spacing: -0.04em;
-
   color: #000000;
 }
 
@@ -78,7 +73,6 @@
   font-weight: normal;
   font-size: 14px;
   line-height: 17px;
-  /* identical to box height, or 121% */
   text-align: center;
   color: #a0a0a0;
 }
@@ -151,9 +145,6 @@
     letter-spacing: -0.04em;
 
     color: #000000;
-  }
-  .about-project__about {
-    
   }
   .about-project__about-subtitle {
 

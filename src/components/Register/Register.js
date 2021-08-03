@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useFormWithValidation } from "../../utils/validation";
 import logo from "../../images/logo.svg"
 
-/* // import { CurrentUserContext } from "../contexts/CurrentUserContext"; */
+
 
 function Register(props) {
   const [email, setEmail] = useState("");
@@ -18,16 +18,7 @@ function Register(props) {
     resetForm,
   } = useFormWithValidation();
 
-  // const handleEmailChange = (e) => {
-  //   setEmail(e.target.value);
-  // };
 
-  // const handleNameChange = (e) => {
-  //   setName(e.target.value);
-  // };
-  // const handlePasswordChange = (e) => {
-  //   setPassword(e.target.value);
-  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -37,9 +28,7 @@ function Register(props) {
   return (
     <section className="register">
       <form className="register__form" onSubmit={handleSubmit}>
-        {/* <a className="register__main-page-link" href="/">
-          <img className=""></img>
-        </a> */}
+     
 
         <Link to="/" className="header__logo-link">
           <img alt="logo" src={logo} className="header__logo"></img>

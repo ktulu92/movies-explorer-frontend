@@ -1,5 +1,3 @@
-import React, { useState, useEffect } from "react";
-
 import RunningTitle from "../RunningTitle/RunningTitle";
 import Preloader from "../Preloader/Preloader";
 import avatar from "../../images/avatar.jpeg";
@@ -26,10 +24,10 @@ function AboutMe(props) {
 
       <ul className="about-me_contact-navigation">
         <li className="about-me_contact-cell">
-          <a className="about-me_contact-link" href="https://www.facebook.com">Facebook</a>
+          <a className="about-me_contact-link" href="https://www.facebook.com/profile.php?id=100024060235386">Facebook</a>
         </li>
         <li className="about-me_contact-cell">
-          <a className="about-me_contact-link" href="https://www.github.com">GitHub</a>
+          <a className="about-me_contact-link" href="hhttps://github.com/ktulu92">GitHub</a>
         </li>
       </ul>
       </div>

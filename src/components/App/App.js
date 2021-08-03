@@ -18,7 +18,7 @@ import NotFound from "../NotFound/NotFound";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
 import Movies from "../Movies/Movies";
 import SavedMovieCardList from "../SavedMovieCardList/SavedMovieCardList";
-import {filterShortMovies} from "../../utils/utils";
+import { filterShortMovies } from "../../utils/utils";
 
 import { CurrentUserContext } from "../../context/CurrentUserContext";
 
@@ -41,9 +41,6 @@ function App() {
 
   //Стейты для авторизация и регистрации
   const [isLogin, setIsLogin] = useState(false);
-  const [isRegistered, setIsRegistered] = useState(false);
-
-
 
   //Стейт для прелоадера
   const [isLoading, setIsLoading] = useState(false);
@@ -106,64 +103,38 @@ function App() {
       .catch((err) => {
         setMoviesErrorMessage("Что то пошло не так");
         setIsLoading(false);
-      
       });
-  
   }
 
   // Смена стейта чекбокса поиска короткометражек
   function handleCheckbox(e) {
     setCheckboxChecked(!checkboxChecked);
-    // console.log(checkboxChecked)
   }
 
-  // // //Реализация поиска короткометражек
-  // function handleShortFilms(movieShortList) {
-  //   return movieShortList.filter((movie) => {
-  //     return movie.duration <= 40;
-  //   });
-  // }
-
-  //Будет общая функция фильтрации
+  //Общая функция фильтрации
   function filterMoviesArray(moviesData, keyWord) {
     const filteredMovies = moviesData.filter((movie) => {
-      // debugger
-      // console.log(movie.nameRU)
-      // console.log(keyWord)
-      console.log(movie.nameRU.toLowerCase().includes(keyWord.toLowerCase()))
-
-      return movie.nameRU.toLowerCase().includes(keyWord.toLowerCase())
-      
- 
+      console.log(movie.nameRU.toLowerCase().includes(keyWord.toLowerCase()));
+      return movie.nameRU.toLowerCase().includes(keyWord.toLowerCase());
     });
 
-
-
-
-
     if (checkboxChecked) {
-      // setCheckboxChecked(false);
       console.log(checkboxChecked);
       return filterShortMovies(filteredMovies);
     } else {
-      // setCheckboxChecked(true);
-      // console.log(checkboxChecked);
       return filteredMovies;
     }
-
-    // return filteredMovies;
   }
 
   //Поиск по общему массиву фильмов
   function handleSearchFilm(keyWord) {
     setIsLoading(true); //стейт для прелоадера
-    // handleGetMovies();
+
     setTimeout(() => setIsLoading(false), 1000);
 
     const result = filterMoviesArray(movies, keyWord);
     setFilteredMovies(result);
     localStorage.setItem("filteredMovies", JSON.stringify(result));
-      
   }
 
   //Поиск по  массиву сохраненных фильмов
@@ -176,21 +147,6 @@ function App() {
     }, 1000);
   }
 
-
-  // const [filteredMovies, setFilteredMovies] = useState([]); //прокидываем в /movies
-
-  // const [savedMovies, setSavedMovies] = useState([]); //прокидываем в /saved-movies
-
-
-
-
-
-
-
-
-
-  //функционал карточек фильмов...
-
   //функция постановки лайка
   function likeMovie(movie) {
     api
@@ -199,7 +155,6 @@ function App() {
         const films = [...savedMovies, savedMovie];
         localStorage.setItem("savedMovies", JSON.stringify(films));
         setSavedMovies((prevState) => [...prevState, savedMovie]);
-       
       })
       .catch((err) => console.log(err));
   }
@@ -227,14 +182,13 @@ function App() {
     localStorage.removeItem("moviesData");
     localStorage.removeItem("filteredMovies");
     localStorage.removeItem("savedMovies");
-
     setMovies([]);
     setFilteredMovies([]);
     setSavedMovies([]);
     history.push("/");
   }
 
-  //функция редактирования профиля ПРОВЕРИТЬ
+  //функция редактирования профиля
   function handleUpdateUser(data) {
     setIsLoading(true);
     api
@@ -255,18 +209,16 @@ function App() {
         setProfileErrorMessage("Ошибка редактирования /Что то случилось...");
       });
   }
-  //Регистрация работает
+  //Регистрация
   function handleRegister(data) {
     setIsLoading(true);
     api
       .register(data.name, data.email, data.password)
       .then((res) => {
-        setIsRegistered(true);
         setIsLoading(false);
         history.push("/signin");
       })
       .catch((err) => {
-        setIsRegistered(false);
         setIsLoading(false);
 
         if (err === 400) {
@@ -283,7 +235,7 @@ function App() {
       });
   }
 
-  //Логирование работает
+  //Логирование
   function handleLogin(data) {
     setIsLoading(true);
     api
@@ -312,7 +264,7 @@ function App() {
         setLoginErrorMessage(`Ошибка: ${err}`);
       });
   }
-  //функция проверки токена работает
+  //функция проверки токена
   function checkToken() {
     const token = localStorage.getItem("jwt");
     if (token) {
@@ -347,7 +299,7 @@ function App() {
       });
   }
 
-  // Проверка токена с ходу и получение данных пользователя
+  // Проверка токена  и получение данных пользователя
   useEffect(() => {
     const token = localStorage.getItem("jwt");
     if (!token) {
@@ -367,10 +319,6 @@ function App() {
     }
   }, [isLogin]);
 
-
-
-
-
   useEffect(() => {
     const movies = JSON.parse(localStorage.getItem("moviesData"));
     if (movies) {
@@ -384,18 +332,15 @@ function App() {
     }
   }, [isLogin]);
 
-  useEffect(() => {
-    checkToken();
-  }, []);
+  // useEffect(() => {
+  //   checkToken();
+  // }, []);
 
+  //Стейты для функционала отображения карточек в зависимости от разрешения экрана
 
-///Переписать добавление карточек
-    //Стейты для функционала отображения карточек в зависимости от разрешения экрана
-
-    const [numberOfMovies, setNumberOfMovies] = React.useState(
-    );
-    const [numberOfAddedMovies, setNumberOfAddedMovies] = React.useState();
-    const [windowWidth, setWindowWidth] = useState();
+  const [numberOfMovies, setNumberOfMovies] = React.useState();
+  const [numberOfAddedMovies, setNumberOfAddedMovies] = React.useState();
+  const [windowWidth, setWindowWidth] = useState();
 
   useEffect(() => {
     function handleResize() {
@@ -424,7 +369,9 @@ function App() {
   }, [windowWidth]);
 
   function handleAddMovies() {
-    setNumberOfMovies(prevState => {return prevState +numberOfAddedMovies});
+    setNumberOfMovies((prevState) => {
+      return prevState + numberOfAddedMovies;
+    });
   }
 
   return (
@@ -455,21 +402,18 @@ function App() {
             exact
             path="/movies"
             moviesErrorMessage={moviesErrorMessage}
-            component={Movies} //
-            isLogin={isLogin} //
-            // numberOfAddedMovies={numberOfAddedMovies} //количество добавляемых фильмов по кнопке
-            numberOfMovies={numberOfMovies} //количество фильмов по умолчанию при рендере
-            likeMovie={likeMovie} //функция лайка(сохранения)
-            deleteMovie={deleteMovie} //функция удаления
-            isSavedMovies={false} //стейт для разных страниц (movies\saved-movies)
-            isLoading={isLoading} //стейт для прелоадера
-            onClick={handleOpenBurgerMenuClick} //обработчик открытия меню
-            onChange={handleCheckbox} //хэндлер чекбокса короткометражных
-            checkboxChecked={checkboxChecked} //cостояние чекбокса короткометражных
-            handleAddMovies={handleAddMovies} //обработчик события кнопки еще
+            component={Movies}
+            isLogin={isLogin}
+            numberOfMovies={numberOfMovies}
+            likeMovie={likeMovie}
+            deleteMovie={deleteMovie}
+            isSavedMovies={false}
+            isLoading={isLoading}
+            onClick={handleOpenBurgerMenuClick}
+            onChange={handleCheckbox}
+            handleAddMovies={handleAddMovies}
             searchFilm={handleSearchFilm}
             savedMovies={filteredMovies}
-           
           />
 
           <ProtectedRoute
@@ -477,20 +421,17 @@ function App() {
             path="/saved-movies"
             savedMoviesErrorMessage={savedMoviesErrorMessage}
             component={SavedMovieCardList}
-            onClick={handleOpenBurgerMenuClick} //обработчик события открытия бокового меню
-            isSavedMovies={true} ////стейт для разных страниц (movies\saved-movies)
-            onChange={handleCheckbox} //хэндлер чекбокса короткометражных
-            checkboxChecked={checkboxChecked} //cостояние чекбокса короткометражных
-            isLoading={isLoading} //стейт для прелоадера
-            isLogin={isLogin} //???
-            signIn={isLogin} //???
+            onClick={handleOpenBurgerMenuClick}
+            isSavedMovies={true}
+            onChange={handleCheckbox}
+            checkboxChecked={checkboxChecked}
+            isLoading={isLoading}
+            isLogin={isLogin}
+            signIn={isLogin}
             searchFilm={handleSearchSavedFilm}
             savedMovies={savedMovies}
-            likeMovie={likeMovie} //функция лайка(сохранения)
-            deleteMovie={deleteMovie} //функция удаления
-            
-            // handleAddMovies={handleAddMovies} //обработчик события кнопки еще
-            
+            likeMovie={likeMovie}
+            deleteMovie={deleteMovie}
           />
 
           <ProtectedRoute

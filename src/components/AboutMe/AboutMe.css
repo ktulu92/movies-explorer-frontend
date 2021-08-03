@@ -8,10 +8,7 @@
   width: 270px;
   height: 327px;
   border-radius: 10px;
-  /* background-image: url("../../images/avatar.jpeg");
-  background-repeat: no-repeat; */
   background-size: 100%;
-  
   object-fit: cover;
 }
 
@@ -19,12 +16,8 @@
   margin-top: 66px;
   display: flex;
   justify-content: space-between;
-
-  
 }
 
-.about-me__text-info {
-}
 .about-me__name {
   margin-top: 0px;
   margin-bottom: 0px;
@@ -80,8 +73,6 @@
   text-decoration: none;
   color: grey;
 }
-
-
 
 .about-me__portfolio {
   margin-bottom: 125px;
@@ -173,14 +164,10 @@
   }
 
   .about-me__portfolio {
-    /* margin-bottom: 125px; */
     margin-top: 70px;
-
     margin-bottom: 70px;
   }
 
-  element.style {
-  }
   .about-me__portfolio-link {
     font-size: 18px;
     line-height: 28px;
@@ -210,9 +197,9 @@
 
   .about-me__info {
     flex-wrap: wrap-reverse;
-    /* justify-content: space-between; */
   }
   .about-me__user-text-info {
     max-height: 327px;
     margin-right: 49px;
-}}
+  }
+}

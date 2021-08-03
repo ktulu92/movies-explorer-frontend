@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { Link, useHistory, withRouter } from "react-router-dom";
 
-/* // import { CurrentUserContext } from "../contexts/CurrentUserContext"; */
-// import MovieCard from "../MovieCard/MovieCard";
-// import Header from "../Header/Header";
+
 import { useFormWithValidation } from "../../utils/validation";
 import logo from "../../images/logo.svg"
 
@@ -19,12 +17,6 @@ function Login(props) {
     resetForm,
   } = useFormWithValidation();
 
-  // const handleEmailChange = (e) => {
-  //   setEmail(e.target.value);
-  // };
-  // const handlePasswordChange = (e) => {
-  //   setPassword(e.target.value);
-  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -33,7 +25,7 @@ function Login(props) {
 
   return (
     <section className="login">
-      {/* <Header/> */}
+    
       <form className="login__form " onSubmit={handleSubmit} noValidate>
         <Link to="/" className="header__logo-link">
           <img alt="logo" src={logo}className="header__logo"></img>

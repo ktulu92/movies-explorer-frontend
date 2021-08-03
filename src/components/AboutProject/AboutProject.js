@@ -1,13 +1,5 @@
-import React, { useState, useEffect } from "react";
-import {
-  BrowserRouter,
-  Link,
-  withRouter,
-  Switch,
-  Route,
-  Redirect,
-  useHistory,
-} from "react-router-dom";
+import React from "react";
+
 import RunningTitle from "../RunningTitle/RunningTitle";
 
 function AboutProject(props) {
