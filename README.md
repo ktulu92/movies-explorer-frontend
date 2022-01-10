@@ -1,12 +1,16 @@
 
 
 # Финальный дипломный проект Яндекс Практикум.
-Стек:
-React.js.
-Node.js(Express.js)
-HTML,CSS (flex-box и grid)
-Сервер NGINX.
-База данных MongoDB
+## Используемые технологии :
+*Frontend*
++ HTML/CSS
++ React (+ react-dom, react-router)
++ JavaScript (ES6)
+
+Backend
++ Node.js/Express.js
++ MongoDB
++ Node/Express libraries
 
 
 # Описание:
@@ -20,24 +24,8 @@ HTML,CSS (flex-box и grid)
 
 
 
+**Проект можно собрать и запустить локально!**
 
-
-
-##
-Проект можно собрать и запустить локально!
-
-
-# Воспользуйтесь терминалом и командами
-### `npm install`
-Чтобы установить зависимости
-
-### `npm start`
-Чтобы запустить приложение по адресу 
-
- [http://localhost:3000](http://localhost:3000) 
-
-
-
-### `npm run build`
-Чтобы получить итоговую сборку
-
++ npm install — Чтобы установить зависимости
++ npm start — Чтобы запустить приложение по адресу: http://localhost:3000
++ npm run build — Чтобы получить итоговую сборку
