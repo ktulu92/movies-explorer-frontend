@@ -3,14 +3,24 @@
 # Финальный дипломный проект Яндекс Практикум.
 ## Используемые технологии :
 *Frontend*
-+ HTML/CSS
-+ React (+ react-dom, react-router)
-+ JavaScript ES6 (async/await, fetch API).
 
-Backend
-+ Node.js/Express.js
-+ MongoDB
-+ Node/Express libraries
++ Семантическяа верстка HTML5, CSS3(flex-box,grid-layout)
++ Именование классов по методологии BEM Nested.
++ Верстка адаптирована через media queries breakpoints под различные устройства ( поддерживается разрешение экрана от 320 до 1280 и более пикселей по ширине)
++ Фронтенд - React, функциональные компоненты.
++ Логика - JavaScript ES6 (объектно-ориентированный и функциональный подходы, async/await, fetch API).
++ Функции Context, Ref, Redirect, Route, Switch.
++ Хуки useState, useEffect, useContext, useRef, useCallback, useHistory.
++ Использован ESLint в конфигурации airbnb-base.
+
+*Backend*
++ Node.js(Express.js.)
++ Реализован REST API для работы с базой данных, аутентификации и авторизации пользователя.
++ Работа с данными - MongoDB, использование schema, CRUD-операций. Для работы с Node.js использован Mongoose.
++ Применена валидация пользовательских данных на стороне клиента и на стороне пользователя (в том числе с помощью модулей validator, joi/celebrate).
++ Для авторизации используется JWT-токен.
++ Ведутся логи доступа и ошибок при помощи модуля winston.
++ Реализована централизованная обработка ошибок с отправкой корректных статусов и сообщений о ошибках на запросы.
 
 
 # Описание:
