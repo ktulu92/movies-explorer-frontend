@@ -18,8 +18,6 @@ HTML,CSS (flex-box и grid)
 Используется асинхронный код для работы с сервером. \
 Формы валидируются как на клиентской стороне так и на сервере. \
 
-Бэк  http://api.explorer-movies.nomoredomains.icu/signin
-Фронт http://explorer-movies.nomoredomains.icu/signin
 
 
 
