@@ -19,7 +19,7 @@ export function register(name, email, password) {
 //Получение фильмов
 export function getMovies() {
   const token = localStorage.getItem("jwt");
-  return fetch(`${urlData}` + "/movies", {
+  return fetch(`${urlData}/movies`, {
     method: "GET",
     headers: {
       Accept: "application/json",
@@ -147,7 +147,7 @@ export function deleteMovie(movieId) {
 // }
 
 export function getProfileInfo(token) {
-  return fetch(`${urlData}` + "/users/me", {
+  return fetch(`${urlData}/users/me`, {
     method: "GET",
     headers: {
       Accept: "application/json",
@@ -171,7 +171,7 @@ export function getProfileInfo(token) {
 //ok
 export function editProfile({ name, email }) {
   const token = localStorage.getItem("jwt");
-  return fetch(`${urlData}` + "/users/me", {
+  return fetch(`${urlData}/users/me`, {
     method: "PATCH",
     headers: {
       Accept: "application/json",

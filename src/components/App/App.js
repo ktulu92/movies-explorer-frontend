@@ -114,7 +114,6 @@ function App() {
   //Общая функция фильтрации
   function filterMoviesArray(moviesData, keyWord) {
     const filteredMovies = moviesData.filter((movie) => {
-      
       return movie.nameRU.toLowerCase().includes(keyWord.toLowerCase());
     });
 
@@ -332,9 +331,7 @@ function App() {
     }
   }, [isLogin]);
 
-  // useEffect(() => {
-  //   checkToken();
-  // }, []);
+
 
   //Стейты для функционала отображения карточек в зависимости от разрешения экрана
 

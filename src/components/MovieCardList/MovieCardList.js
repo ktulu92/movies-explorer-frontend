@@ -34,8 +34,6 @@ function MovieCardList({
 
   //
 
-  console.log(numberOfMovies);
-
   return (
     <section className="movie-card-list">
       <Preloader isLoading={isLoading} />
