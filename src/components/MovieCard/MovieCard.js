@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { CurrentUserContext } from "../../context/CurrentUserContext";
+import React, { useState } from "react";
+
 import { useLocation } from "react-router-dom";
 
 function MovieCard(props) {
@@ -32,25 +32,18 @@ function MovieCard(props) {
     (movie) => movie.movieId === props.movie.movieId
   );
 
-
-  
-  
   function handleLike() {
     likeMovie(movie);
     setIsLiked(true);
   }
 
   function handleDisLike() {
-    // ;
     setIsLiked(false);
-    
+
     deleteMovie(currentMovie._id);
-    // setIsLiked(false);
   }
 
   function handleDeleteMovie() {
-    // deleteMovie(movie._id);
-    
     deleteMovie(currentMovie._id);
     setIsLiked(false);
   }
@@ -71,7 +64,7 @@ function MovieCard(props) {
             <p className="element__duration">{calculatedDuration}</p>
           </div>
 
-          {props.isSavedMovies ? (
+          {isSaved ? (
             <button
               onClick={handleDeleteMovie}
               className="element__delete"

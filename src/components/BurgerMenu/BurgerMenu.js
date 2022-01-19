@@ -1,12 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import {
-  BrowserRouter,
-  Link,
-  withRouter,
-  Switch,
-  Route,
-  Redirect,
-  useHistory,
+ 
+  Link
+ 
 } from "react-router-dom";
 import AccountButton from "../AccountButton/AccountButton";
 

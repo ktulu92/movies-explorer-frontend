@@ -1,16 +1,6 @@
-import React, { useState, useEffect } from "react";
-import {
-  BrowserRouter,
-  Link,
-  withRouter,
-  Switch,
-  Route,
-  Redirect,
-  useHistory,
-} from "react-router-dom";
+import React from "react";
 
 function NavTab(props) {
-  // const { isLoggedIn, email, onOut } = props;
   return (
     <ul className="nav-tab">
       <li className="nav-tab__element">

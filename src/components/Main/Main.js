@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Promo from "../Promo/Promo";
 import AboutProject from "../AboutProject/AboutProject";
 import AboutMe from "../AboutMe/AboutMe";
 import Techs from "../Techs/Techs";
-// import Portfolio from "../Portfolio/Portfolio"
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";

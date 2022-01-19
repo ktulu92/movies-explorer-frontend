@@ -42,7 +42,7 @@ function Header(props) {
 
           <button
             className="header__burger-menu-open-button"
-            onClick={props.onClick}
+            onClick={onClick}
           ></button>
         </>
       )}

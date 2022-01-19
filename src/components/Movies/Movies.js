@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
@@ -13,7 +13,6 @@ function Movies(props) {
       <MoviesCardList
         isSavedMovies={props.isSavedMovies}
         onClick={props.onClick}
-        movieSaved={false}
         numberOfAddedMovies={props.numberOfAddedMovies}
         numberOfMovies={props.numberOfMovies}
         savedMovies={props.savedMovies}

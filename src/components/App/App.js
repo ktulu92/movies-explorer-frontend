@@ -114,7 +114,7 @@ function App() {
   //Общая функция фильтрации
   function filterMoviesArray(moviesData, keyWord) {
     const filteredMovies = moviesData.filter((movie) => {
-      console.log(movie.nameRU.toLowerCase().includes(keyWord.toLowerCase()));
+      
       return movie.nameRU.toLowerCase().includes(keyWord.toLowerCase());
     });
 

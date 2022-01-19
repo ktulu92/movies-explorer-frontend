@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
-import RunningTitle from "../RunningTitle/RunningTitle";
 
 import ToggleButton from "../ToggleButton/ToggleButton";
 
@@ -17,12 +16,6 @@ function SearchForm({ searchFilm, onChange, checkboxChecked }) {
     searchFilm(searchString);
   }
 
-  function handleCheckbox(evt) {
-    // evt.preventDefault();   
-    // searchFilm(searchString);
-    // console.log(onCheckbox())
-    // onCheckbox();
-  }
   return (
     <section className="search">
       <form className="search__form">

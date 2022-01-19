@@ -1,20 +1,20 @@
-import React, { useState } from "react";
-import { Link, useHistory, withRouter } from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
 
 
 import { useFormWithValidation } from "../../utils/validation";
 import logo from "../../images/logo.svg"
 
 function Login(props) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
   const {
     values,
-    setValues,
+    // setValues,
     handleChange,
     errors,
     isFormValid,
-    resetForm,
+    // resetForm,
   } = useFormWithValidation();
 
 

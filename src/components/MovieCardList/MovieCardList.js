@@ -20,12 +20,12 @@ function MovieCardList({
   const [filmsToRender, setFilmsToRender] = useState(savedMovies);
 
   useEffect(() => {
-    // console.log(filmsToRender);
+   
     if (checkboxChecked) {
       setFilmsToRender(filterShortMovies(savedMovies));
-      // console.log(filmsToRender);
+     
     } else setFilmsToRender(savedMovies);
-    // console.log(filmsToRender);
+
   }, [
     checkboxChecked,
     savedMovies,
