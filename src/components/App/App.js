@@ -414,6 +414,7 @@ function App() {
             handleAddMovies={handleAddMovies}
             searchFilm={handleSearchFilm}
             savedMovies={filteredMovies}
+            checkboxChecked={checkboxChecked}
           />
 
           <ProtectedRoute

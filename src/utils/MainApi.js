@@ -1,4 +1,5 @@
-const urlData = "https://api.explorer-movies.nomoredomains.icu"; //До деплоя будет локал хост
+// const urlData = "https://api.explorer-movies.nomoredomains.icu"; //До деплоя будет локал хост
+const urlData = "http://localhost:3001"
 
 //ok
 export function register(name, email, password) {
