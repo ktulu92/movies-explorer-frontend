@@ -73,6 +73,7 @@ function Register(props) {
         >
           Зарегистрироваться
         </button>
+        <p>{props.errorMessage}</p>
         <p className="register__subtitle">
           Уже зарегистрированы?{" "}
           <Link to="/signin" type="button" className="register__button-in">

@@ -9,7 +9,6 @@ function MovieCardList({
   likeMovie,
   deleteMovie,
   savedMovies,
- 
   numberOfMovies,
   isLoading,
   searchFilm,
@@ -29,7 +28,7 @@ function MovieCardList({
   }, [
     checkboxChecked,
     savedMovies,
-    // filmsToRender
+   
   ]);
 
   //

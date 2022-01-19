@@ -188,10 +188,10 @@ function App() {
   }
 
   //функция редактирования профиля
-  function handleUpdateUser(data) {
+  async function handleUpdateUser(data) {
     setIsLoading(true);
-    api
-      .editProfile(data)
+    await api.editProfile(data)
+
       .then((userData) => {
         if (userData) {
           setCurrentUser({

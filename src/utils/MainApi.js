@@ -34,9 +34,9 @@ export function getMovies() {
 
       // если ошибка, отклоняем промис
       return Promise.reject(`Ошибка: ${res.status}`);
-    })
-    .catch((err) => {
-      console.log("Запрос не выполнен", err);
+    // })
+    // .catch((err) => {
+    //   console.log("Запрос не выполнен", err);
     });
 }
 
