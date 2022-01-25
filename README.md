@@ -12,7 +12,7 @@
 + Именование классов по методологии BEM Nested.
 + Верстка адаптирована через media queries breakpoints под различные устройства ( поддерживается разрешение экрана от 320 до 1280 и более пикселей по ширине)
 + Фронтенд - React, функциональные компоненты.
-+ Логика - JavaScript ES6 (объектно-ориентированный и функциональный подходы, async/await, fetch API).
++ Логика - JavaScript ES6 (объектно-ориентированный и функциональный подходы,  fetch API).
 + Функции Context, Ref, Redirect, Route, Switch.
 + Хуки useState, useEffect, useContext, useRef, useCallback, useHistory.
 + Использован ESLint в конфигурации airbnb-base.
